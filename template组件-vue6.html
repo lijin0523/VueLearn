@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="jalasmart">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <my-div></my-div>
+            <my-div></my-div>
+        </div>
+        <template id="my-div">
+            <div>
+                <img src="img/bck.jpg" alt="" width="200px">
+                <input type="color">
+                <p>{{msg}}</p>
+                <p>点击次数：</p>{{conuter}}</p>
+                <button @click="conuter +=1">按钮</button>
+            </div>
+        </template>  
+        <script src="dist/vue.js"></script>
+    </body>
+    <script>
+        //实例化组件
+        Vue.component('my-div',{
+            template:'#my-div',
+            data(){
+                return {
+                    msg:'你是个好姑娘',
+                    conuter:0
+                } 
+            }
+        })
+        new Vue({
+            el:'#app'
+        })
+    </script>
+<html>

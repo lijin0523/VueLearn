@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="jalasmart">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <style>
+        .active{
+            background: orange;
+            color:red;
+        }
+    </style>
+    <body>
+        <div id="app">
+            <!-- <img v-bind:src="imgSrc" :alt="alt"> -->
+            <p :class="index === aciveIndex ? 'active' : '' " v-for="(college,index) in colleges">{{college}}</p>
+            <p :style="{color:fontColor}">{{alt}}</p>
+            <button v-on:click="alt = '今天好热啊'">改变内容</button>
+            <button @click="changeContent()">测试按钮</button>
+        </div>
+        <script src="dist/vue.js"></script>
+    </body>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                alt:'我是一只小小鸟',
+                imgSrc:'img/bck.jpg',
+                colleges:['iO学院','Java学院','Html5学院','C++学院','Android学院'],
+                aciveIndex:2,
+                fontColor:'#fff000'
+            },
+            methods:{
+                changeContent(){
+                    this.alt = '哎呦，不错哦！',
+                    this.fontColor = 'blue'
+                }
+            }
+        })
+    </script>
+<html>

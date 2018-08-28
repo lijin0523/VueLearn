@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="jalasmart">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <my-slot>
+                <p>平凡指数</p>
+            </my-slot>
+            <hr>
+            <name-slot>
+                <img slot="Css" src="img/bck.jpg" alt="">
+                <p slot="Html5">前端课程有页面还有交互数据等等</p>
+            </name-slot>
+        </div>
+        <!-- 匿名插槽 -->
+        <template id="my_slot">
+            <div class="panel">
+                <!-- <h2>插槽头部</h2> -->
+                <slot>这里是匿名插槽，可以任意替换</slot>
+                <!-- <footer>插槽底部</footer> -->
+            </div>
+        </template>
+        <template id="name_slot">
+            <div class="main">
+                <slot name="Html5">这是Html5课程</slot>
+                <slot name="Css">这是Css课程</slot>
+                <slot name="Js">这是Js课程</slot>
+            </div>
+        </template>   
+        <script src="dist/vue.js"></script>
+    </body>
+    <script>
+        Vue.component('my-slot',{
+            template:'#my_slot'
+        })
+        Vue.component('name-slot',{
+            template:'#name_slot'
+        })
+        new Vue({
+            el:'#app',
+            data:{}
+        })
+    </script>
+<html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="jalasmart">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-for="(score,index) in scores">{{score}}</p>
+        <p v-for="(value,key) in pig">{{key}}:{{value}}</p>
+        <p v-for="a in name">{{a}}</p>
+        <hr>
+        <table>
+            <thead>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </thead>
+            <tbody>
+                <tr v-for="p in persons">
+                    <td>{{p.name}}</td>
+                    <td>{{p.age}}</td>
+                    <td>{{p.sex}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <p>{{msg}} 确实不错的！</p>
+        <p v-text="msg">确实不错的！</p>
+        <div v-html="html">1324654</div>
+    </div>
+    <script src="dist/vue.js"></script>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            scores: [200, 300, 522, 134],
+            pig: { name: '小猪', age: '8', height: 155 },
+            name: 'lijin0523',
+            msg:'今天天气很好啊！',
+            html:'<input type="date">',
+            persons: [
+                { name: '张三', age: 18, sex: '男' },
+                { name: '李四', age: 20, sex: '女' },
+                { name: '王五', age: 60, sex: '女' },
+                { name: '陈留', age: 18, sex: '男' },
+            ]
+        }
+    })
+</script>
+<html>

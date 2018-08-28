@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="jalasmart">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <p>初始值：{{name}}</p>
+            <p>初始值：{{name.split('').reverse().join('')}}</p>
+            <p>方法调用：{{reverseStr()}}</p>
+            <p>计算属性：{{reverse}}</p>
+        </div>
+        <script src="dist/vue.js"></script>
+    </body>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                name:'Tony marry'
+            },
+            //方法调用
+            methods:{
+                reverseStr(){
+                   return this.name.split('').reverse().join('')
+                }   
+            },
+            //计算属性
+            computed:{
+                //get方法
+                reverse(){
+                    return this.name.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+<html>
